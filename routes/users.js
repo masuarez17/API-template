@@ -1,10 +1,8 @@
-const express = require('express');
-const router = express.Router();
+const express = require('express')
+const router = express.Router()
 
-router.get('/', (request, response) => {
-    response.status(200).json({
-        message: 'ON USERS ROUTES'
-    })
-});
+const usersController = require('../controllers/users')
+
+router.get('/', usersController.getUser)
 
 module.exports = router
