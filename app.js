@@ -1,7 +1,6 @@
 const express = require('express')
 const app = express()
 
-console.log('On app')
 // Middlewares
 const morgan = require('morgan')
 const bodyParser = require('body-parser')
