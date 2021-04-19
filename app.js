@@ -1,9 +1,23 @@
 const express = require('express')
-const morgan = require('morgan')
 const app = express()
 
 // Middlewares
+const morgan = require('morgan')
+const bodyParser = require('body-parser')
+
 app.use(morgan('dev'))
+app.use(bodyParser.urlencoded({extended: false}))
+app.use(bodyParser.json())
+app.use((request, response, next) => {
+    response.header('Access-Control-Allow-Origin', '*')
+    response.header('Access-Control-Allow-Headers', '*')
+
+    if (request.method === 'OPTIONS') {
+        response.header('Access-Control-Allow-Methods', 'PUT, POST, PATCH, DELETE, GET')
+        return response.status(200).json({})
+    }
+})
+
 // Api Routes
 const usersRoutes = require('./routes/users.js')
 
