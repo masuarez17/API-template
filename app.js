@@ -4,6 +4,9 @@ const app = express()
 // Middlewares
 const morgan = require('morgan')
 const bodyParser = require('body-parser')
+const compression = require('compression')
+
+app.use(compression())
 
 app.use(morgan('dev'))
 
