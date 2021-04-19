@@ -1,0 +1,23 @@
+{
+  "name": "api-template",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "test"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/masuarez17/API-template.git"
+  },
+  "keywords": [
+    "rest",
+    "api"
+  ],
+  "author": "Marcos Suarez",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/masuarez17/API-template/issues"
+  },
+  "homepage": "https://github.com/masuarez17/API-template#readme"
+}
