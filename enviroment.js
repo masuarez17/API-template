@@ -1,5 +1,5 @@
 module.exports = {
-    hashKey: '',
+    hashKey: 'ASDDWQA',
     databaseConfig: {
         database: 'gdon',
         username: 'root',
