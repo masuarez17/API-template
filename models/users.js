@@ -40,6 +40,17 @@ module.exports = (sequelize, DataTypes) => {
             allowNull: false,
             unique: true,
 
+        },
+        lastIp: {
+            type: DataTypes.STRING,
+            allowNull: false,
+            validate: {
+                notEmpty: true,
+            }
+        },
+        role: {
+            type: DataTypes.STRING,
+            allowNull: true
         }
     })
     return users

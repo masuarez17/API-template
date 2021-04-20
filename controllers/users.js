@@ -6,23 +6,24 @@ const jwt = require('jsonwebtoken')
 const bcrypt = require('bcrypt')
 
 exports.registerUser = async (request, response) => {
-    request.query.lastLogin = new Date()
+    request.body.lastLogin = new Date()
+    console.log('BODDY: ', request.body)
 
     generateReferralCode()
         .then(result => {
-            request.query.referralCode = result
-            bcrypt.hash(request.query.password, 10, (error, hash) => {
+            request.body.referralCode = result
+            bcrypt.hash(request.body.password, 10, (error, hash) => {
                 if (error) {
                     response.status(500).json({
                         error: error
                     })
                 } else {
-                    request.query.password = hash
+                    request.body.password = hash
 
-                    Users.findByPk(request.query.email)
+                    Users.findByPk(request.body.email)
                         .then(result => {
                             if (result === null) {
-                                Users.create(request.query)
+                                Users.create(request.body)
                                     .then(() => {
                                         response.status(201).json({
                                             message: 'User created successfully'
